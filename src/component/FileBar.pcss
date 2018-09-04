@@ -1,0 +1,186 @@
+@import "../common/fun_var.pcss";
+
+@keyframes file-bar-show {
+  0%   {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.file-bar {
+  $blue: #00a0e9;
+
+  display: flex;
+  align-items: center;
+  height: 72px;
+  font-size: 14px;
+  min-width: 500px;
+
+  &.is-file {
+    animation: file-bar-show .5s ease-in-out;
+  }
+
+  &.draggable {
+    cursor: move;
+  }
+
+  .main {
+    display: flex;
+    flex: 4 2 auto;
+    align-items: center;
+    min-width: 188px;
+    .icon {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      margin: 0 22px;
+      flex: none;
+      background-size: 44px;
+    }
+
+    .name {
+      display: block;
+      width: 380px;
+      margin-right: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      &.can-not-download {
+        cursor: unset;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .name-on-edit {
+      position: absolute;
+      .content {
+        position: absolute;
+        top: -14px;
+        height: 28px;
+        display: flex;
+        box-sizing: border-box;
+        z-index: 99;
+        .editor {
+          width: 420px;
+          padding-left: 6px;
+          font-size: 14px;
+        }
+        .button-ensure, .button-cancel {
+          width: 66px;
+          height: 28px;
+          margin-left: 12px;
+          border-radius: 14px;
+
+          cursor: pointer;
+          user-select: none;
+          text-align: center;
+          line-height: 28px;
+          font-size: 14px;
+        }
+        .button-ensure {
+          background-color: $blue;
+          color: white;
+        }
+        .button-cancel {
+          color: #656565;
+        }
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    flex: 10;
+    .item {
+      display: flex;
+      flex: 1;
+      min-width: 82px;
+      justify-content: center
+    }
+  }
+
+  .operators {
+    display: flex;
+    flex: 4;
+    .icon {
+      display: flex;
+      min-width: 32px;
+      flex: 1;
+      color: $blue;
+      font-size: 18px;
+      cursor: pointer
+    }
+  }
+
+  .auto-grow {
+    display: flex;
+    flex: 1;
+    min-width: 12px
+  }
+
+  $springAnimation: cubic-bezier(.71,-.46,.29,1.46);
+
+  .more-icon {
+    position: relative;
+    &.-show .pop-box {
+      opacity: 100;
+      width: 108px;
+      pointer-events: auto;
+    }
+
+    .pop-box {
+      position: absolute;
+      right: 8px;
+      top: 16px;
+      display: flex;
+      width: 92px;
+      min-height: 120px;
+      flex-direction: column;
+
+      box-shadow: 0 0 20px #888888;
+      z-index: 8;
+      background-color: white;
+
+      $animationTimeOfPopBoxShow: .25s;
+      transition: opacity $animationTimeOfPopBoxShow $springAnimation, width $animationTimeOfPopBoxShow $springAnimation;
+      opacity: 0;
+      pointer-events: none;
+
+      div {
+        display: flex;
+        height: 46px;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        color: #323232;
+        background-color: white;
+
+        transition: background-color .15s ease-in-out;
+
+        &:hover {
+          background-color: #9adfff;
+        }
+      }
+    }
+  }
+
+  .event-mask {
+    background-color: transparent;
+    // background-color: '#ddd';
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 7
+  }
+}

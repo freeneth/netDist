@@ -1,0 +1,69 @@
+/* all the .scss file is not scss, it's cssnext */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.net-disk {
+  display: flex;
+  flex-direction: column;
+  padding: 0 22px;
+  a {
+    text-underline: none!important;
+    &:hover, &:active {
+      text-underline: none!important;
+    }
+  }
+
+  >.title-bar {
+    display: flex;
+    font-size: 18px;
+    height: 68px;
+    align-items: center;
+    justify-content: space-between
+  }
+
+  >.form {
+    background-color: #f2f2f2;
+    flex-direction: column;
+    color: #323232;
+    position: relative;
+    &.show-upload-container::after {
+      content: '拖动到此处以上传';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #666;
+      background-color: #EEEEEECC;
+    }
+    &.show-upload-container.mouse-up::after {
+      content: '松开鼠标以上传';
+    }
+
+    .upload {
+      position: relative;
+      width: 250px;
+      .upload-inner {
+        display: flex;
+        align-items: center;
+      }
+      .percent {
+        width: 170px;
+      }
+      .rate {
+        margin-left: 8px;
+      }
+    }
+  }
+}

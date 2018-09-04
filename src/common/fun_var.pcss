@@ -1,0 +1,99 @@
+$springAnimation: cubic-bezier(.71,-.46,.29,1.46);
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@define-mixin createAnCloseButton $size, $color, $borderWidth: 2px {
+  position: relative;
+
+  cursor: pointer;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 47%;
+    width: $size;
+    height: $borderWidth;
+    background-color: $color;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  &:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &.closing {
+    border-radius: 50%;
+    border: $borderWidth dashed $color;
+    animation: spin 1.5s infinite;
+    box-sizing: border-box;
+    &:before, &:after {
+      content: none;
+    }
+  }
+}
+
+@define-mixin createPlayPauseButton $size, $color {
+  box-sizing: border-box;
+  height: $size;
+  width: $size;
+
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-radius: 0;
+  border-style: solid;
+
+  &.play {
+    transition: .25s all ease;
+    border-color: transparent transparent transparent $color;
+    border-width: calc($size/ 2) 0 calc($size / 2) calc($size * 0.8333333333);
+    transform: translateX(1px);
+  }
+
+  &.pause {
+    border-color: transparent $color transparent $color;
+    border-width: 0 calc($size / 4) 0 calc($size / 4);
+    transform: scaleX(0.8);
+  }
+
+  &.pausing-or-starting {
+    border-radius: 50%;
+    border: calc($size / 6) dashed $color;
+    animation: spin 1.5s infinite;
+  }
+}
+
+@keyframes check-mark-checked {
+  0% {
+    transform: rotate(45deg) scaleY(0);
+  }
+  100% {
+    transform: rotate(45deg) scaleY(1);
+  }
+}
+
+@define-mixin createACheckMark $size, $color {
+  position: relative;
+  &:after {
+    box-sizing: content-box;
+    content: "";
+    border: 1px solid $color;
+    border-left: 0;
+    border-top: 0;
+    height: 7px;
+    position: absolute;
+    left: 6px;
+    top: 3px;
+    transform: rotate(45deg);
+    animation: check-mark-checked .5s ease-in-out;
+    width: 3px;
+    transition: transform .15s cubic-bezier(.71, -.46, .88, .6) .15s;
+    transform-origin: center;
+  }
+}

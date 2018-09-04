@@ -1,0 +1,82 @@
+.operate-buttons-in-title {
+  $buttonWidth: 129px;
+  $themeColor: #00a0e9;
+  $springAnimation: cubic-bezier(.71,-.46,.29,1.46);
+  display: flex;
+
+  [class*="-button"] {
+    width: $buttonWidth;
+    height: 44px;
+    line-height: 44px;
+
+    margin-left: 42px;
+    border: 0;
+    border-radius: 4px;
+    background-color: $themeColor;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.15s $springAnimation;
+
+    &:hover {
+      background-color: color($themeColor blackness(15%));
+    }
+  }
+
+  .input-file {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $buttonWidth;
+    height: 44px;
+    padding-top: 44px;
+    box-sizing: border-box;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .create-button {
+    position: relative;
+
+    &.active .pop-box {
+      opacity: 100;
+      pointer-events: auto;
+      div {
+        height: 42px;
+        line-height: 42px;
+      }
+    }
+
+    .pop-box {
+      position: absolute;
+
+      color: #323232;
+      box-shadow: 0 5px 20px #888888;
+      background-color: white;
+      top: 44px;
+      left: 0;
+      z-index: 9;
+
+      $animationTimeOfPopBoxShow: .2s;
+      transition: opacity $animationTimeOfPopBoxShow $springAnimation;
+      opacity: 0;
+      pointer-events: none;
+
+      div {
+        height: 32px;
+        line-height: 32px;
+        width: $buttonWidth;
+        background-color: white;
+        transition: background-color .15s ease-in-out,
+        height $animationTimeOfPopBoxShow $springAnimation,
+        line-height $animationTimeOfPopBoxShow $springAnimation;
+
+        &:hover {
+          background-color: #9adfff;
+        }
+      }
+    }
+  }
+}

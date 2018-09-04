@@ -1,0 +1,176 @@
+@import "../common/fun_var.pcss";
+
+.-net-disk-entry-box-self-control {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 140px;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: #aaa;
+  transition: background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+
+  &:hover {
+    background-color: #c1c1c1;
+  }
+  .-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .-text {
+    margin-left: 16px;
+    color: #252525;
+    font-size: 16px;
+    margin-top: 4px
+  }
+  &.big {
+    width: 210px;
+    margin-left: -210px;
+  }
+
+  .file-num-on-upload {
+    position: absolute;
+    left: 56px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: red;
+    font-size: 12px;
+  }
+}
+
+.upload-box {
+  $themeColor: #00a0e9;
+  $borderRadius: 4px;
+  $border: 1px solid #eee;
+
+  color: #424e67;
+  box-shadow: 0 0 20px #888888;
+  animation: confirm-box-show .35s $springAnimation;
+  background-color: #fff;
+  padding-bottom: 30px;
+  border-radius: $borderRadius;
+  min-height: 380px;
+
+  .-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    height: 44px;
+    line-height: 44px;
+    font-weight: bold;
+    border-radius: $borderRadius $borderRadius 0 0;
+    background-color: $themeColor;
+    color: #fff;
+    .-close {
+      @mixin createAnCloseButton 22px, white;
+      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .upload-box-bar {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    padding: 10px;
+    border-top: $border;
+    font-size: 14px;
+    &:nth-last-child(1) {
+      border-bottom: $border;
+    }
+    .file-name {
+      width: 260px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .file-size {
+      margin: 0 40px;
+    }
+    .upload-state {
+      position: relative;
+      width: 180px;
+      .upload-inner {
+        display: flex;
+        align-items: center;
+      }
+      .percent {
+        width: 100px;
+      }
+      .rate {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+      /* 不许改，要改同 FileUploadPercent.scss 一起改 */
+      .-upload-percent {
+        width: 100%;
+        height: 14px;
+        background-color: #ffffff;
+
+        .-upload-percent-inner {
+          background-color: #00a0e9;
+          height: 100%;
+          &.error {
+            background-color: red;
+          }
+        }
+      }
+      .finished {
+        display: flex;
+        width: 180px;
+        align-items: center;
+        .success-icon {
+          @mixin createACheckMark 16px, white;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: $themeColor;
+          margin-right: 10px;
+        }
+        .fail-icon {
+          @mixin createAnCloseButton 30px, white, 3px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background-color: red;
+          transform: scale(0.4);
+          margin-left: -12px;
+        }
+      }
+    }
+    .operates {
+      display: flex;
+      width: 48px;
+      align-items: center;
+      .play-pause-button {
+        @mixin createPlayPauseButton 12px, #777;
+        margin-left: 9px;
+      }
+      .-close {
+        @mixin createAnCloseButton 16px, #777;
+        width: 17px;
+        height: 17px;
+        margin-left: 10px;
+        &.closing {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+}

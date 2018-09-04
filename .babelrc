@@ -1,0 +1,18 @@
+{
+  "presets": [
+    ["@babel/preset-env", {"modules": false, "targets": {
+      "chrome": "56"
+    }}],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "kotlish-also",
+    ["@babel/plugin-proposal-decorators", {"legacy": true}],
+    "@babel/plugin-proposal-optional-chaining",
+    ["@babel/plugin-proposal-pipeline-operator", {"proposal": "minimal"}],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-do-expressions",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-throw-expressions"
+   ]
+}
