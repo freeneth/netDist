@@ -69,7 +69,8 @@
   "scripts": {
     "dist:dev": "rollup --watch -c",
     "dist": "rollup -c",
-    "test:dev": "webpack-dev-server --config webpack.config.dev.js"
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC"

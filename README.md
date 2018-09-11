@@ -1,7 +1,8 @@
-调试时，
-本目录下 `npm run dist:dev`
-HXZ目录 `npm run start`
-即可
-
-亦可单独运行
-`npm run test:dev`
+## netdist
+## Build Setup
+	# install dependencies
+	npm install/yarn
+	# serve with hot reload at localhost:3333
+	npm run dev
+	# build for production with minification
+	npm run build

@@ -1,7 +1,7 @@
 import localStorageApi from './localStorageAdapter'
 import ldbnApi from './ldbnAdapter'
 
-const api = process.env.NODE_ENV === 'production'
+const api = process.env.NODE_ENV !== 'production'
   ? ldbnApi
   : localStorageApi
 

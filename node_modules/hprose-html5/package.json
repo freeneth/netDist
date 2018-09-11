@@ -1,0 +1,86 @@
+{
+  "name": "hprose-html5",
+  "version": "2.0.36",
+  "description": "Hprose is a High Performance Remote Object Service Engine.",
+  "homepage": "https://github.com/hprose/hprose-html5",
+  "keywords": [
+    "hprose",
+    "rpc",
+    "webservice",
+    "websocket",
+    "http",
+    "ajax",
+    "json",
+    "jsonrpc",
+    "cross-language",
+    "cross-platform",
+    "cross-domain",
+    "html5",
+    "serialize",
+    "serialization",
+    "protocol",
+    "web",
+    "service",
+    "framework",
+    "library",
+    "game",
+    "communication",
+    "middleware",
+    "webapi",
+    "async",
+    "batch",
+    "multicall",
+    "future",
+    "promise",
+    "comet",
+    "push",
+    "pub-sub",
+    "publish",
+    "subscribe",
+    "idempotent",
+    "oneway",
+    "promises-aplus"
+  ],
+  "author": {
+    "name": "Ma Bingyao",
+    "email": "andot@hprose.com",
+    "url": "http://hprose.com/"
+  },
+  "directories": {
+    "lib": "dist/"
+  },
+  "main": "dist/hprose-html5.src.js",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-lzmajs": "^1.2.1",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.5",
+    "promises-aplus-tests": "*"
+  },
+  "scripts": {
+    "aplus-tests": "promises-aplus-tests dist/hprose-html5.js"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hprose/hprose-html5.git"
+  },
+  "autoupdate": {
+    "source": "git",
+    "target": "git://github.com/hprose/hprose-html5.git",
+    "basePath": "dist/",
+    "files": [
+      "hprose-html5.src.js"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/hprose/hprose-html5/issues",
+    "email": "andot@hprose.com"
+  },
+  "license": "MIT"
+}

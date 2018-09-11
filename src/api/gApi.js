@@ -12,8 +12,8 @@ import { initLAPI } from "@leither/l-api";
  * @property {string} currentIP
  * @property {FileApi} api
  */
-//const api = initLAPI(location.origin + '/webapi/')
-const api = initLAPI('http://192.168.1.187' + '/webapi/')//异地测试阿里云
+const api = initLAPI(location.origin + '/webapi/')
+//const api = initLAPI('http://192.168.1.187' + '/webapi/')//异地测试阿里云
 window.G = {};
 G.api = api;
 export const gApi = {
